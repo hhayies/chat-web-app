@@ -1,0 +1,165 @@
+/* 背景画像の設定 */
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: url("../img/body.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+form {
+    margin-top: 30px;
+}
+
+/* ナビゲーションの設定 */
+nav {
+    background: url("../img/nav.jpeg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    padding-top: 13px;
+    padding-bottom: 12px;
+}
+
+.nav-item {
+    font-weight: bold;
+}
+
+/* ハンバーガーメニュー */
+.navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.navbar-toggler {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: .5s ease-in-out;
+}
+
+.toggler-icon {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #000;
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+/* ナビゲーションが閉じている状態 */
+
+.navbar-toggler.collapsed .top-bar {
+    position: absolute;
+    top: 0px;
+    transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+    position: absolute;
+    top: 20px;
+    transform: rotate(0deg);
+}
+
+/* ナビゲーションが開いている時 */
+
+.navbar-toggler .top-bar {
+    top: inherit;
+    transform: rotate(135deg);
+}
+
+.navbar-toggler .middle-bar {
+    opacity: 0;
+    top: inherit;
+    filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar {
+    top: inherit;
+    transform: rotate(-135deg);
+}
+
+/* 背景画像の透明化 */
+main {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    padding-top: 30px;
+}
+
+#haikei {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+/* タイトルの文字の大きさ */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* タイトルの色付け */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.button {
+    width: 20em;
+    margin: 0 auto;
+}
+
+/* エラーメッセージ */
+.flashes li {
+    color: red;
+    font-weight: bold;
+}
+
+.flashes {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.error {
+    width: 410px;
+    background-color: #ffe6e6;
+    border: 2px solid crimson;
+    border-left: 5px solid crimson;
+    border-radius: 5px;
+    margin: 10px auto 25px;
+    padding: 7px;
+    text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+
+}

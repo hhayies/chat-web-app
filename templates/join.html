@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ホーム画面
+{% endblock %}
+
+{% block head %}
+    <link href="../static/css/switch.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+
+    <h2>チャットルームに参加</h2>
+    <form action="/join" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="roomid" name="roomid" placeholder="ルームのid" type="text" required>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="パスワード" type="text" required>
+        </div>
+
+        <!-- 匿名機能 -->
+        <div class="over">
+            <div class="hidden">
+                <p>匿名機能 :</p>
+            </div>
+            <div class="switchArea">
+                <input type="checkbox" id="switch1" name="anonymous" value="1">
+                <label for="switch1"><span></span></label>
+                <input type="hidden" name="anonymous" value="0">
+                <div class="swImg"></div>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="error">
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endwith %}
+        <button class="btn btn-primary button" type="submit">ルームに参加</button>
+    </form>
+
+{% endblock %}

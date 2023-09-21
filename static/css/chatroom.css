@@ -1,0 +1,411 @@
+body {
+    margin: 0;
+    padding-bottom: 3rem;
+    overflow: initial;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+    background: url("../img/chat.png");
+}
+
+main {
+    padding-top: 20px;
+}
+
+form {
+    margin-top: 0;
+}
+
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* グループ人数表示の装飾 */
+h3 {
+    font-weight:bold;
+    color: transparent;
+    background : rgba(0,0,0,1);
+    text-shadow :
+        0 0 0.1em rgba(255,255,255,0.05),
+        0.01em 0.04em 0.03em rgba(255,255,255,0.4);
+    background-clip: text;
+    -webkit-background-clip : text;
+    margin-left: 5px;
+}
+
+/* メンバー表示 */
+#members {
+    position: relative;
+    width: 160px;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+.list-group-item {
+    padding: 10px 0 10px 15px;
+    font-weight: bold;
+}
+
+#flush-headingOne {
+    padding: 0;
+    border-top: 2px solid #6e6e6e;
+}
+
+.accordion-header, .accordion-body {
+    border: solid #6e6e6e;
+    border-width: 0 2px 2px;
+    border-collapse: collapse;
+}
+
+.accordion-button {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #636464;
+    background-color: #fefefe;
+    box-shadow: none;
+    border: none;
+}
+
+.accordion-button:focus {
+    border: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+/* 入室通知 */
+.alert {
+    position: absolute;
+    display: none;
+    margin: 1rem 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    z-index: 2;
+    font-size: 1.2rem;
+    padding: 0.25em 0.5em 0.5em;
+    border: 2px solid #7695f2;
+}
+
+#notice {
+    margin-bottom: 0;
+}
+
+#enter {
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+/* いいね数表示 */
+#good {
+    background: #b1fff6;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    color: #000;
+    font-size: 20px;
+    padding-top: 12px;
+    padding-left: 5px;
+    text-align: center;
+    line-height: 38px;
+    position: absolute;
+    display: none;
+    right: 15px;
+    top: 110px;
+    z-index: 2;
+}
+
+#good_count {
+    font-weight: bold;
+}
+
+/* メッセージ入力 */
+#form {
+    display: flex;
+    width: 100%;
+    margin-right: 10%;
+}
+
+#basic-addon3 {
+    border: none;
+    padding: 0rem 1rem 0.1em;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+    background-color: #4e8357;
+    color: #f7f7f7;
+    font-weight: bold;
+    text-align: center;
+}
+
+#basic-url {
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+#chat {
+    background: #b5afafdc;
+    padding: 0.3rem 0.5rem 0.5rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 3rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+/* ボタン表示 */
+#button {
+    background-color: #b5afaf;
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 2.6rem;
+    left: 0;
+    right: 0;
+    height: 3rem;
+}
+
+.good {
+    background-color: #b1fff6;
+}
+
+.btn {
+    padding: 0.2rem 1rem;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.btn:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+}
+
+/* ミュートボタン */
+.mute_btn {
+    display: inline-block;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 5px;
+    content: "mute: ON";
+}
+
+.mute_btn:hover {
+    color: #fff;
+}
+
+/* 送信ボタン */
+#form>button {
+    background: #4e8357;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    width: 100px;
+}
+
+/* メッセージ表示 */
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 6rem;
+}
+
+#messages>li {
+    padding: 1rem 1.5rem 0.5rem;
+}
+
+.box {
+    position: relative;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #333, 0 0 2px #555 inset;
+    margin: 10px auto 18px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.button-msg {
+    background: #fffff9;
+    border: 5px solid #ffcb78;
+}
+
+.chat-msg {
+    background: #c5fbff;
+    border: 5px solid #5d86ff;
+}
+
+.title {
+    position: absolute;
+    padding: 0.1em 0.5em;
+    left: 1em;
+    top: 0.4em;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 1px 1px 3px #a0a0a0;
+}
+
+.button-msg .title {
+    color: #ff4d8f;
+    background: #fff6e7;
+}
+
+.chat-msg .title {
+    background: #eaff16;
+    color: #dc7aff
+}
+
+.date {
+    font-size: 0.65em;
+}
+
+.content {
+    margin: 35px 35px 0;
+}
+
+.icon {
+    display: inline-block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    font-size: 20px;
+    overflow: hidden;
+}
+.icon::before,
+.icon::after {
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background-color: #8d8f91;
+    content: "";
+}
+.icon::before {
+    top: 0.15em;
+    width: 0.4em;
+    height: 0.4em;
+}
+.icon::after {
+    bottom: -0.4em;
+    width: 0.8em;
+    height: 0.8em;
+}
+
+/* 退室ボタン */
+#close {
+    margin-right: 20px;
+    position:fixed;
+    right:0px;
+}
+
+/* ルーム情報の表示 */
+#room_info {
+    margin: 0 auto 0 0;
+    display: flex;
+}
+
+.room {
+    padding: 0;
+    margin-left: 30px;
+    font-size: 0;
+}
+
+.room p {
+    font-weight: bold;
+    color: #6e6e6e;/*文字色*/
+    background: #FFF;
+    border: solid 2px #000;/*線*/
+    width: 125px;
+    margin: 0;
+    display: inline-block;
+    font-size:16px;
+    text-align: center;
+    padding: 0px;
+}
+
+.room p:first-child {
+    border-radius: 10px 0 0 10px;
+    border-right: solid 0;
+    background-color: #6e6e6e;
+    color: #fff;
+}
+
+#id, #password{
+    border-radius: 0 10px 10px 0;
+}
+
+@media screen and (max-width: 1040px) {
+    #room_info {
+        display: block;
+    }
+
+    #button {
+        height: 5rem;
+    }
+
+    .btn {
+        margin: 0 5px 5px;
+    }
+
+    #form {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .navbar {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    #room_info {
+        display: flex;
+    }
+
+    #haikei {
+        display: block;
+        padding-top: 8px;
+    }
+
+    #room_info {
+        padding: 5px 0;
+    }
+
+    .room {
+        margin: 3px auto 0 0px;
+        margin-right: 10px;
+    }
+
+    .room p {
+        width: 100px;
+    }
+
+    #members {
+        bottom: 95px;
+        margin-bottom: -55px;
+        margin-left: auto;
+    }
+
+    #form {
+        width: 80%;
+    }
+
+    #form>button {
+        width: 130px;
+    }
+}
+
+@media screen and (max-width: 637px) {
+    #button {
+        height: 8rem;
+    }
+}

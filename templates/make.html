@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ホーム画面
+{% endblock %}
+
+{% block head %}
+    <link href="../static/css/switch.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+
+    <h2>チャットルームを作成</h2>
+    <form action="/make" method="post">
+        <div>
+            <h4>ルームid : {{ room_id }}</h4>
+        </div>
+        <br>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="パスワード(10文字以下)" type="text" required>
+        </div>
+
+        <!-- 匿名機能 -->
+        <div class="over">
+            <div class="hidden">
+                <p>匿名機能 :</p>
+            </div>
+            <div class="switchArea">
+                <input type="checkbox" id="switch1" name="anonymous" value="1">
+                <label for="switch1"><span></span></label>
+                <input type="hidden" name="anonymous" value="0">
+                <div class="swImg"></div>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="error">
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endwith %}
+        <button class="btn btn-primary button" type="submit">ルームを作成</button>
+    </form>
+
+{% endblock %}

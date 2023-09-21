@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ホーム画面
+{% endblock %}
+
+{% block main %}
+
+    <h2>チャットルームを使用する</h2>
+    <br><br>
+    <div class="d-grid gap-2 col-8 mx-auto">
+        <a class="btn btn-primary button" href="/make" role="button">ルームを作成する</a>
+        <br>
+        <a class="btn btn-primary button" href="/join" role="button">ルームに参加する</a>
+    </div>
+    <br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error">
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}
